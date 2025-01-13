@@ -13,11 +13,9 @@ import {
   FETCH_TRANSACTIONS
 } from './actionTypes';
 
-const API_URL = 'https://elearning-api-394a6d0a89df.herokuapp.com';
-
 export const createCourse = (courseData) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/api/courses/create`, courseData);
+    const response = await axios.post(renderValidUrl('/api/courses/create'), courseData);
     dispatch({ type: CREATE_COURSE, payload: response.data });
     toast.success("Course created successfully!");
   } catch (error) {
@@ -27,7 +25,7 @@ export const createCourse = (courseData) => async (dispatch) => {
 
 export const fetchCourses = () => async (dispatch) => {
   try {
-    const response = await axios.get(`${API_URL}/api/courses`);
+    const response = await axios.get(renderValidUrl('/api/courses'));
     dispatch({ type: FETCH_COURSES, payload: response.data });
   } catch (error) {
     toast.error("Failed to fetch courses.");
@@ -36,7 +34,7 @@ export const fetchCourses = () => async (dispatch) => {
 
 export const fetchCourse = (id) => async (dispatch) => {
   try {
-    const response = await axios.get(`${API_URL}/api/courses/${id}`);
+    const response = await axios.get(renderValidUrl(`/api/courses/${id}`));
     dispatch({ type: FETCH_COURSE, payload: response.data });
   } catch (error) {
     toast.error("Failed to fetch course.");
@@ -45,7 +43,7 @@ export const fetchCourse = (id) => async (dispatch) => {
 
 export const createTransaction = (transactionData) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/api/transactions/create`, transactionData);
+    const response = await axios.post(renderValidUrl('/api/transactions/create'), transactionData);
     dispatch({ type: CREATE_TRANSACTION, payload: response.data });
     toast.success("Transaction created successfully!");
   } catch (error) {
@@ -55,7 +53,7 @@ export const createTransaction = (transactionData) => async (dispatch) => {
 
 export const uploadFile = (fileData) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/api/uploads/upload`, fileData);
+    const response = await axios.post(renderValidUrl('/api/uploads/upload'), fileData);
     dispatch({ type: UPLOAD_FILE, payload: response.data });
     toast.success("File uploaded successfully!");
   } catch (error) {
@@ -65,7 +63,7 @@ export const uploadFile = (fileData) => async (dispatch) => {
 
 export const userSignup = (userData) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/api/users/signup`, userData);
+    const response = await axios.post(renderValidUrl('/api/users/signup'), userData);
     dispatch({ type: USER_SIGNUP, payload: response.data });
     toast.success("User signed up successfully!");
   } catch (error) {
@@ -75,7 +73,7 @@ export const userSignup = (userData) => async (dispatch) => {
 
 export const userLogin = (userData) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/api/users/login`, userData);
+    const response = await axios.post(renderValidUrl('/api/users/login'), userData);
     dispatch({ type: USER_LOGIN, payload: response.data });
     toast.success("User logged in successfully!");
   } catch (error) {
@@ -85,7 +83,7 @@ export const userLogin = (userData) => async (dispatch) => {
 
 export const fetchTransaction = (id) => async (dispatch) => {
   try {
-    const response = await axios.get(`${API_URL}/api/transactions/${id}`);
+    const response = await axios.get(renderValidUrl(`/api/transactions/${id}`));
     dispatch({ type: FETCH_TRANSACTION, payload: response.data });
   } catch (error) {
     toast.error("Failed to fetch transaction.");
@@ -94,7 +92,7 @@ export const fetchTransaction = (id) => async (dispatch) => {
 
 export const fetchTransactions = () => async (dispatch) => {
   try {
-    const response = await axios.get(`${API_URL}/api/transactions`);
+    const response = await axios.get(renderValidUrl('/api/transactions'));
     dispatch({ type: FETCH_TRANSACTIONS, payload: response.data });
   } catch (error) {
     toast.error("Failed to fetch transactions.");

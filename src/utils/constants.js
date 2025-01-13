@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-export const BACKEND_URL = process.env.REACT_APP_API_URL.replace('/api', '')
+export const BACKEND_URL = process.env.REACT_APP_API_URL.replace('/api', '');
 
 export const renderValidUrl = (url) => {
   if (url?.startsWith('http://') || url?.startsWith('https://')) {

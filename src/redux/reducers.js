@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import {
   CREATE_COURSE,
   FETCH_COURSES,
