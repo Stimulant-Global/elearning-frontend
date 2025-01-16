@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from './Header';
+import Navbar from './Navbar';
 import Footer from './Footer';
 
 const PageLayout = ({ children }) => {
@@ -10,7 +10,7 @@ const PageLayout = ({ children }) => {
 
   return (
     <div>
-      <Header user={user} />
+      <Navbar user={user} />
       <main>{children}</main>
       <Footer />
       <ToastContainer />
